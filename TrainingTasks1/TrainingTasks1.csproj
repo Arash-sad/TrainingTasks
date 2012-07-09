@@ -6,7 +6,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{9B5D1DEB-B267-4E0E-B727-1D2698AEB0C7}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TrainingTasks1</RootNamespace>
     <AssemblyName>TrainingTasks1</AssemblyName>

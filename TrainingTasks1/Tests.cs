@@ -19,11 +19,69 @@ namespace TrainingTasks1
         [Test]
         public void A_Blank_Password_Is_Not_Valid()
         {
-            IPasswordValidation validation = null;
+            IPasswordValidation validation = new PasswordValidation();
             var result = validation.Validate("");
 
             Assert.False(result.IsValid);
             Assert.AreEqual(result.Message, "Password cannot be blank");
+
+
+            Console.WriteLine(result.IsValid);
+            Console.WriteLine(result.Message);
+        }
+
+        [Test]
+        public void Password_min_lenght()
+        {
+            IPasswordValidation validation = new PasswordValidation();
+            var result = validation.Validate("123456789");
+
+            Assert.False(result.IsValid);
+            Assert.AreEqual(result.Message, "Password lenght must be min of 10");
+
+
+            Console.WriteLine(result.IsValid);
+            Console.WriteLine(result.Message);
+        }
+
+        [Test]
+        public void Password_with_Uppercase()
+        {
+            IPasswordValidation validation = new PasswordValidation();
+            var result = validation.Validate("asdfg12");
+
+            Assert.False(result.IsValid);
+            Assert.AreEqual(result.Message, "Password must have an uppercase letter");
+
+
+            Console.WriteLine(result.IsValid);
+            Console.WriteLine(result.Message);
+        }
+
+        [Test]
+        public void Password_have_A_Number()
+        {
+            IPasswordValidation validation = new PasswordValidation();
+            var result = validation.Validate("asdfg");
+
+            Assert.False(result.IsValid);
+            Assert.AreEqual(result.Message, "Password must have a Number");
+
+
+            Console.WriteLine(result.IsValid);
+            Console.WriteLine(result.Message);
+        }
+
+    }
+
+    public static class Prog
+    {
+        public static void Main(string[] args)
+        {
+            var test = new PasswordValidatorTests();
+            test.Password_min_lenght();
+
+            Console.Read();
         }
     }
 }
